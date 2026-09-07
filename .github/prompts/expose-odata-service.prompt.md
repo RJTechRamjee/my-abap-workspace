@@ -24,3 +24,6 @@ Rules:
 - Released APIs only. Don't invent catalog/scenario technical names — mark unknowns
   `[CONFIRM in ADT]`.
 - Confirm target package/transport before creating objects.
+
+---
+**Chain**: `create-rap-bo` / `create-cds-view` → **expose-odata-service** → `atc-fix` → `pre-transport-check`

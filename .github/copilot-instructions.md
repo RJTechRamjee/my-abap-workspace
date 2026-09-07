@@ -31,6 +31,15 @@ by a short object-type infix. There is no `ZCL_`/`ZIF_`/`ZBP_` family here.
   view they define behavior for — no separate name of their own.
 - Do not invent a different prefix or namespace unless the user explicitly asks.
 
+## Ground Before You Generate
+- If `system-info.md` exists at the workspace root, read it before generating or reviewing
+  anything. It records the connected system's release, feature availability, and the RAP/CDS
+  syntax ceiling — it outranks the defaults in this file where the two disagree.
+- If it doesn't exist, run the `bootstrap-system-context` prompt once. Until then, treat the
+  ABAP Cloud assumptions below as unverified and say so when they matter.
+- Before creating a new object, check whether one already exists that does the job (where-used,
+  object search on `ZRK_*`). Reuse or extend beats a near-duplicate.
+
 ## Classic vs. ABAP Cloud
 - Default to ABAP Cloud patterns for new development: CDS view entities, RAP
   (managed first, unmanaged only when managed can't fit the requirement),
@@ -97,3 +106,17 @@ by a short object-type infix. There is no `ZCL_`/`ZIF_`/`ZBP_` family here.
 - Don't hardcode business-relevant values that belong in customizing or constants.
 - Don't silently pick classic extensibility as a shortcut because it's
   simpler to generate — always name it as an exception when used.
+
+## Available Prompts
+Run them roughly in this order; each names its own chain.
+
+| Phase | Prompt |
+| --- | --- |
+| Ground (once per system) | `bootstrap-system-context` |
+| Understand | `explain-abap`, `abap-cloud-readiness-check`, `clean-core-extensibility-check` |
+| Build | `create-cds-view`, `create-rap-bo`, `expose-odata-service` |
+| Verify | `generate-abap-unit-tests`, `atc-fix` |
+| Troubleshoot | `analyze-dump`, `debug-slow-sql` |
+| Clean up & ship | `find-unused-code`, `pre-transport-check` |
+
+Reviews use the `abap-clean-code-reviewer` agent (read-only).

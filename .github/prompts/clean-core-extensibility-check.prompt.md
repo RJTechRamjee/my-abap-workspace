@@ -1,9 +1,14 @@
 ---
 description: "Decide the Clean Core extensibility approach for a requirement (standard config vs in-app vs side-by-side vs classic exception)."
-agent: "agent"
+agent: "ask"
 argument-hint: "Requirement, code, or design to assess"
 ---
 Assess the requirement/code/design below for Clean Core extensibility fit: ${input:requirement:Requirement, code, or design to assess}
+
+This is an advisory decision, not a system inspection: it runs in **ask** mode with no ADT
+access. Reason from the requirement and the tier rules. If a step genuinely needs live release
+state, say which object to verify and hand off to `abap-cloud-readiness-check` rather than
+guessing.
 
 Follow the extensibility tier order in
 [abap-cloud-rap.instructions.md](../instructions/abap-cloud-rap.instructions.md).
@@ -24,3 +29,6 @@ Output:
 - Clean Core checklist across all six dimensions (software stack, extensions, data,
   integrations, processes, operations) — state a position on each dimension the requirement
   touches, not only "extensions".
+
+---
+**Chain**: `abap-cloud-readiness-check` → **clean-core-extensibility-check** → `create-rap-bo` / `create-cds-view`

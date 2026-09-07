@@ -9,7 +9,18 @@ Follow [abap-cloud-rap.instructions.md](../instructions/abap-cloud-rap.instructi
 [clean-abap.instructions.md](../instructions/clean-abap.instructions.md) naming, layout, and
 conventions.
 
-First state the consumer (Fiori Elements UI service vs. API-only), because that decides draft.
+## 0. Ground and check for reuse first
+- Read `system-info.md` (run `bootstrap-system-context` if absent). It decides whether view
+  entities, `strict ( 2 )`, and managed draft are actually available here — don't assume.
+- Search for an existing `ZRK_*` BO or CDS model covering this entity. Extending or projecting an
+  existing model beats a parallel near-duplicate; say what you found either way.
+- Probe for a RAP generator: `abap_generators-list_generators`, matched by **display name**, not
+  by a hardcoded internal ID (IDs differ between releases). If a suitable generator exists, use it
+  via `abap_generators-get_schema` + `abap_generators-generate_objects` and review its output
+  against the conventions below. If none exists or it can't express the requirement, fall back to
+  the manual build in this prompt and say which path you took.
+
+Then state the consumer (Fiori Elements UI service vs. API-only), because that decides draft.
 If it isn't clear from the request, ask before generating.
 
 Produce every artifact as a separate, named source block (abapGit layout), each headed by a
@@ -44,3 +55,6 @@ Rules:
 - Note to run the `generate-abap-unit-tests` prompt next.
 - Ask for the target package and transport request before creating objects if not already known —
   never assume `$TMP` unless the user explicitly says this is a throwaway/experiment.
+
+---
+**Chain**: `bootstrap-system-context` → **create-rap-bo** → `generate-abap-unit-tests` → `atc-fix` → `pre-transport-check`

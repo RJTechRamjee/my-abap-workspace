@@ -21,3 +21,6 @@ Wins vs Redesign Candidates, then a suggested migration sequence.
 
 Don't call something "Ready" just because it compiles/runs today on a classic system — Ready
 means release-compliant. Mark anything you can't verify live `[CONFIRM in ADT]`.
+
+---
+**Chain**: `explain-abap` → **abap-cloud-readiness-check** → `clean-core-extensibility-check` → `create-rap-bo`

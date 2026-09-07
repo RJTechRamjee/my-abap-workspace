@@ -8,6 +8,10 @@ Generate a read-only CDS model for: ${input:viewDescription:View purpose and bas
 Follow [abap-cloud-rap.instructions.md](../instructions/abap-cloud-rap.instructions.md) for naming
 (`ZRK_I_<Name>` for interface views, `ZRK_C_<Name>` for consumption views) and annotation placement.
 
+Before generating: read `system-info.md` if present (it decides view entity vs. DDIC-based view),
+and search for an existing `ZRK_I_*` interface view over the same data — build on it rather than
+adding a second view over the same source.
+
 Produce as separate named source blocks:
 1. CDS interface view(s) `ZRK_I_<Name>` — `DEFINE VIEW ENTITY` (no `sqlViewName`), released SAP
    CDS/tables as data sources only,
@@ -28,3 +32,6 @@ Rules:
 - Don't invent field names — mark unknowns `[CONFIRM in ADT]`.
 - Show the generated DDL source before creating the object, confirm target package/transport,
   and end with the released-dependency list and their assumed API state.
+
+---
+**Chain**: `bootstrap-system-context` → **create-cds-view** → `expose-odata-service` → `generate-abap-unit-tests`

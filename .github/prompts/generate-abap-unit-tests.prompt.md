@@ -28,3 +28,6 @@ Rules:
    uncovered rule `[GAP]` — do not leave an empty assertion in a method that claims to test a rule.
 6. Flag any production code that needs refactoring (e.g., to inject dependencies) before it can
    be tested in isolation — don't refactor silently.
+
+---
+**Chain**: `create-rap-bo` → **generate-abap-unit-tests** → `atc-fix` → `pre-transport-check`

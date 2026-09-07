@@ -54,3 +54,6 @@ Rules:
   package, transport) and wait for explicit confirmation in the same turn before any write tool.
   One confirmation covers that batch only.
 - Never change an object outside the stated target scope to make a finding go away.
+
+---
+**Chain**: `generate-abap-unit-tests` → **atc-fix** → `pre-transport-check`

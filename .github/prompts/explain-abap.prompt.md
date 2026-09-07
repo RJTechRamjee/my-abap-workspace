@@ -55,3 +55,6 @@ Rules:
 - If the object is large, say which parts you read and which you skipped. Never imply you read
   code you didn't.
 - Flag dead code and commented-out blocks as observations, but don't refactor them here.
+
+---
+**Chain**: `bootstrap-system-context` → **explain-abap** → `abap-cloud-readiness-check` → `atc-fix`
