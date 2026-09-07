@@ -36,6 +36,8 @@ one-line comment with the object name, type, and the requirement it implements:
 4. Behavior projection `ZRK_C_<Name>` — `projection;`, `use create/update/delete`, `use action …`
    for each exposed action. Required for a transactional service; don't stop at the interface BDEF.
 5. Metadata extension `ZRK_C_<Name>` (.ddlx) — all `@UI`/`@Search` annotations here, not inline.
+   Follow [fiori-annotations.instructions.md](../instructions/fiori-annotations.instructions.md);
+   for a full UI build run `annotate-fiori-app` after this prompt.
 6. Behavior pool class `zrk_bp_i_<name>` — local handler/saver classes, one method per rule,
    `READ`/`MODIFY ENTITIES` only, results via `MAPPED`/`REPORTED`/`FAILED`, `TODO(Rn)` where the
    requirement isn't explicit.

@@ -86,9 +86,10 @@ by a short object-type infix. There is no `ZCL_`/`ZIF_`/`ZBP_` family here.
 
 ## Style & Testing
 - Full conventions live in [clean-abap.instructions.md](instructions/clean-abap.instructions.md),
-  [abap-cloud-rap.instructions.md](instructions/abap-cloud-rap.instructions.md), and
-  [abap-performance.instructions.md](instructions/abap-performance.instructions.md).
-  All three attach automatically to the file types they cover (`applyTo`); don't
+  [abap-cloud-rap.instructions.md](instructions/abap-cloud-rap.instructions.md),
+  [abap-performance.instructions.md](instructions/abap-performance.instructions.md), and
+  [fiori-annotations.instructions.md](instructions/fiori-annotations.instructions.md).
+  All four attach automatically to the file types they cover (`applyTo`); don't
   duplicate their rules here. When working on a behavior pool or RAP handler
   class, read the RAP file explicitly — it keys off CDS/BDEF extensions.
 - New or changed logic needs ABAP Unit tests (`ltcl_*`, AAA pattern, test
@@ -115,8 +116,23 @@ Run them roughly in this order; each names its own chain.
 | Ground (once per system) | `bootstrap-system-context` |
 | Understand | `explain-abap`, `abap-cloud-readiness-check`, `clean-core-extensibility-check` |
 | Build | `create-cds-view`, `create-rap-bo`, `expose-odata-service` |
+| Fiori UI | `annotate-fiori-app`, `debug-fiori-ui` |
 | Verify | `generate-abap-unit-tests`, `atc-fix` |
-| Troubleshoot | `analyze-dump`, `debug-slow-sql` |
+| Troubleshoot | `analyze-dump`, `debug-slow-sql`, `debug-fiori-ui` |
 | Clean up & ship | `find-unused-code`, `pre-transport-check` |
 
 Reviews use the `abap-clean-code-reviewer` agent (read-only).
+
+## Authoritative Sources
+Cite these rather than inventing a rule, and prefer them over memory when they disagree with this
+folder. Say which one you used.
+
+| Topic | Source |
+| --- | --- |
+| Clean ABAP rules | `SAP/styleguides` → `clean-abap/CleanABAP.md` |
+| ABAP language syntax, RAP EML, CDS view entities, BDEF, performance notes | `SAP-samples/abap-cheat-sheets` |
+| Fiori Elements UI annotations (OData V4, RAP) | `SAP-samples/abap-platform-fiori-feature-showcase` |
+| RAP end-to-end reference scenario | `SAP-samples/abap-platform-refscen-flight` |
+
+The cheat sheets cover ABAP language and RAP, **not** Fiori Elements — for UI annotations use the
+feature showcase and [fiori-annotations.instructions.md](instructions/fiori-annotations.instructions.md).

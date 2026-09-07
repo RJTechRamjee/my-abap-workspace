@@ -38,7 +38,9 @@ Group the findings and show this table before proposing a single edit:
    Say so explicitly instead of silencing the symptom.
 
 ## 4. Suppressions — the part that matters
-- A pseudo-comment (`"#EC <CHECK_ID>`) or an ATC exemption request is a last resort, never a way
+- Prefer a pragma (`##PRAGMA`) to a pseudo comment (`"#EC`) where both exist — Clean ABAP
+  § Comments.
+- A pragma, pseudo comment, or ATC exemption request is a last resort, never a way
   to clear the list. Each one needs, in the code and in your summary: what the check flagged, why
   the code is correct anyway, and who decided.
 - Never add a blanket suppression at include/class level to clear multiple findings.
