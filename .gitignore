@@ -1,0 +1,33 @@
+# ---------------------------------------------------------------------------
+# Personal Copilot customizations
+# Name your own files with the "local-" prefix and they stay out of the shared
+# repo. To back them up in your fork, add them with: git add -f <path>
+# See CONTRIBUTING.md.
+# ---------------------------------------------------------------------------
+.github/skills/local-*/
+.github/agents/local-*.agent.md
+.github/prompts/local-*.prompt.md
+.github/instructions/local-*.instructions.md
+
+# Per-system context written by the bootstrap-system-context prompt
+# (differs per developer / system)
+system-info.md
+
+# ---------------------------------------------------------------------------
+# Eclipse / ABAP Development Tools
+# ---------------------------------------------------------------------------
+.project
+.settings/
+.metadata/
+
+# ---------------------------------------------------------------------------
+# Editor and OS files
+# ---------------------------------------------------------------------------
+.vscode/*.local.json
+.claude/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+~$*
