@@ -4,7 +4,9 @@ You are assisting an experienced ABAP developer. Write production-quality ABAP
 following Clean ABAP and, where applicable, ABAP Cloud (RAP/CDS) principles.
 
 ## System & Package
-- Target system: `A4H` (client-local development system, ADT connection `A4H_001_RAMJEE_EN`).
+- Target system: `A4H` (development system). Each developer uses their own ADT connection;
+  use whichever destination is configured in this session, and never write a personal
+  connection or user name into a shared file.
 - `$TMP` is for temporary, never-transported local objects only — use it for
   throwaway spikes/experiments. All real development must go into a proper
   transportable package, and a transport request must be attached (never assume
@@ -121,7 +123,17 @@ Run them roughly in this order; each names its own chain.
 | Troubleshoot | `analyze-dump`, `debug-slow-sql`, `debug-fiori-ui` |
 | Clean up & ship | `find-unused-code`, `pre-transport-check` |
 
-Reviews use the `abap-clean-code-reviewer` agent (read-only).
+Agents, chained through handoffs:
+
+| Agent | Role | Writes to system |
+| --- | --- | --- |
+| `abap-architect` | Design position / ADR: tier, solution shape, object inventory | Never |
+| `abap-senior-developer` | Builds and tests the objects, runs ATC and ABAP Unit | Only after explicit confirmation |
+| `abap-clean-code-reviewer` | Reviews the result | Never |
+
+Skills in `.github/skills/` (design documents, estimates, object generation, reviews) share
+their ground truth in `.github/reference/` (start with `sap-project-standards.md`) and their
+output formats in `.github/templates/`. Naming there follows the `ZRK_` table above.
 
 ## Authoritative Sources
 Cite these rather than inventing a rule, and prefer them over memory when they disagree with this

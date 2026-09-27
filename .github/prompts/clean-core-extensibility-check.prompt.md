@@ -25,7 +25,7 @@ Follow the extensibility tier order in
 
 Output:
 - Recommended tier + concrete mechanism.
-- One-paragraph justification for why higher tiers don't fit.
+- One-paragraph justification for why each earlier (lower-numbered) tier doesn't fit.
 - Clean Core checklist across all six dimensions (software stack, extensions, data,
   integrations, processes, operations) — state a position on each dimension the requirement
   touches, not only "extensions".

@@ -76,10 +76,12 @@ projection BDEF exposing the operations, not just the interface-level BDEF.
 
 ## Extensibility Tier Order
 Always justify why the tier above wasn't sufficient before choosing the next one:
-1. **Standard config** — IMG, BRFplus, condition technique. Default first stop.
-2. **Key-user in-app** — custom fields/logic (RAP BAdI), custom CDS views, adaptation of Fiori.
-3. **Developer extensibility (ABAP Cloud)** — new RAP BOs, released-API classes, released BAdI
+Numbering matches `.github/reference/sap-project-standards.md` §3, which the skills cite.
+
+0. **Standard config** — IMG, BRFplus, condition technique. Default first stop.
+1. **Key-user in-app** — custom fields/logic (RAP BAdI), custom CDS views, adaptation of Fiori.
+2. **Developer extensibility (ABAP Cloud)** — new RAP BOs, released-API classes, released BAdI
    implementations, wrap-and-extend released CDS.
-4. **Side-by-side (BTP)** — RAP/CAP on BTP talking to the system via released OData V4/events.
-5. **Classic extensibility** — user-exit, enhancement, BAdI on a non-released object. Exception
+3. **Side-by-side (BTP)** — RAP/CAP on BTP talking to the system via released OData V4/events.
+4. **Classic extensibility** — user-exit, enhancement, BAdI on a non-released object. Exception
    only: needs a stated, dated reason and an owner; never the default.
