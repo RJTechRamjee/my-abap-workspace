@@ -1,0 +1,32 @@
+{
+	// Team Copilot settings for this repo.
+	// If you open it through a multi-root .code-workspace file (with ABAP system
+	// folders), VS Code may ignore some of these here. Copy them into the
+	// "settings" block of your .code-workspace file instead. See CONTRIBUTING.md.
+
+	// Start the ADT MCP server of the SAP ABAP extension (sapse.adt-vscode).
+	// It registers itself in VS Code as "ADT MCP Server" (id com.sap.adt/mcp) and
+	// generates its own token, so no mcp.json is needed. The agents reference its
+	// tools as com.sap.adt/mcp/<tool>.
+	"adt.mcpServer.enabled": true,
+
+	// Use .github/copilot-instructions.md and .github/instructions/*.instructions.md
+	"github.copilot.chat.codeGeneration.useInstructionFiles": true,
+
+	// Enable prompt files, custom agents and skills from .github/
+	"chat.promptFiles": true,
+	"chat.useAgentSkills": true,
+
+	// Suggest the entry-point prompts in an empty chat
+	"chat.promptFilesRecommendations": {
+		"bootstrap-system-context": true,
+		"explain-abap": true,
+		"create-rap-bo": true,
+		"pre-transport-check": true
+	},
+
+	// Markdown files in .github/ are long prose; wrap them in the editor
+	"[markdown]": {
+		"editor.wordWrap": "on"
+	}
+}
