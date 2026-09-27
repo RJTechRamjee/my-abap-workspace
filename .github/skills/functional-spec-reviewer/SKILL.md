@@ -127,4 +127,3 @@ mark released-API claims `[CONFIRM in ADT]`.
 - Non-trivial extensibility choice → `clean-core-extensibility-advisor` (ADR).
 - Multiple requirements needing an architecture above FS level → `solution-architect`.
 - Answers still needed from the business → `requirement-workshop-facilitator`.
-- Effort question from the review → `rfp-effort-estimator`.
